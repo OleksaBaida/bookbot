@@ -1,8 +1,16 @@
 from stats import count_characters, count_words, sort_chars
-
+import sys
 def main():
-    path_to_book = 'books/frankenstein.txt'
-    string = get_book_text('books/frankenstein.txt')
+    # if len(sys.argv) <= 1 :
+    # print()
+
+    # path_to_book = sys.argv[1]
+    try:
+        path_to_book = sys.argv[1]
+    except:
+        print('Usage: python3 main.py <path_to_book>')
+        sys.exit(1)
+    string = get_book_text(path_to_book)
     num_words = count_words(string)
     num_chars = count_characters(string)
     print('============ BOOKBOT ============')
